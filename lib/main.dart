@@ -15,4 +15,3 @@ class MyApp extends StatelessWidget {
     return const Placeholder();
   }
 }
-class HOME
