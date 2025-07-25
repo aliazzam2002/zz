@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zz/burger.dart';
+import 'package:zz/food_widget.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,11 +11,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: Burger());
+    return MaterialApp(home: avatars(), theme: ThemeData.dark());
   }
 }
-
-
 
 class Lime extends StatelessWidget {
   const Lime({super.key});
