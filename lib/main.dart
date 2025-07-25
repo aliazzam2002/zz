@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zz/burger.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,9 +10,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: Lime());
+    return const MaterialApp(home: Burger());
   }
 }
+
+
 
 class Lime extends StatelessWidget {
   const Lime({super.key});
@@ -108,8 +111,8 @@ class BT extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Container(
-          height: 500,
-          width: 350,
+          height: 900,
+          width: 650,
           decoration: BoxDecoration(
             color: Colors.blueGrey,
             borderRadius: BorderRadius.circular(18),
@@ -121,8 +124,8 @@ class BT extends StatelessWidget {
               Image.network(
                 "https://thumbs.dreamstime.com/b/concept-design-super-sports-vehicle-car-auto-shop-logo-original-motor-silhouette-black-background-vector-illustration-70242426.jpg",
 
-                height: 190,
-                width: 190,
+                height: 390,
+                width: 390,
               ),
               Text(
                 "Welcome to Flutter",
@@ -238,9 +241,15 @@ class BT extends StatelessWidget {
   }
 }
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  Color newColor = Colors.black;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -252,10 +261,9 @@ class MainPage extends StatelessWidget {
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
-
             children: [
               Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(9.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -263,28 +271,27 @@ class MainPage extends StatelessWidget {
                       height: 60,
                       width: 50,
                       color: Colors.pink,
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           "4.7",
-                          style: TextStyle(fontSize: 20, color: Colors.white),
+                          style: TextStyle(fontSize: 25, color: Colors.white),
                         ),
                       ),
                     ),
                     IconButton(
                       onPressed: () {
-                        IconButton(
-                          onPressed: FilledButtonThemeData.new,
-                          icon: Icon(
-                            Icons.favorite_border_outlined,
-                            size: 30,
-                            color: Colors.red,
-                          ),
-                        );
+                        setState(() {
+                          newColor = newColor == Colors.black
+                              ? Colors.red
+                              : Colors.black;
+                        });
                       },
                       icon: Icon(
-                        Icons.favorite_border_outlined,
-                        size: 30,
-                        color: Colors.black,
+                        newColor == Colors.black
+                            ? Icons.favorite_border_outlined
+                            : Icons.favorite,
+                        size: 40,
+                        color: newColor,
                       ),
                     ),
                   ],
@@ -292,18 +299,17 @@ class MainPage extends StatelessWidget {
               ),
               Image.network(
                 "https://freepngimg.com/save/24846-ferrari-transparent-image/624x300",
+                height: 415,
+                width: 415,
               ),
-              Text("Car", style: TextStyle(fontSize: 30)),
-
-              Text("Red Sport Car"),
-
+              const Text("Car", style: TextStyle(fontSize: 30)),
+              const Text("Red Sport Car"),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
                   children: [
-                    Text(
+                    const Text(
                       "230,000\$",
                       style: TextStyle(
                         fontSize: 30,
@@ -320,9 +326,9 @@ class MainPage extends StatelessWidget {
                           color: Colors.blue,
                           borderRadius: BorderRadius.circular(28),
                           border: Border.all(color: Colors.blue),
-                          boxShadow: [],
+                          boxShadow: const [],
                         ),
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             "Add",
                             style: TextStyle(
