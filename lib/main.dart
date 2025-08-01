@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zz/burger.dart';
 import 'package:zz/food_widget.dart';
+import 'package:zz/insta.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: avatars(), theme: ThemeData.dark());
+    return MaterialApp(home: Instagram(), theme: ThemeData.dark());
   }
 }
 
