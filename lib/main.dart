@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zz/burger.dart';
+import 'package:zz/detail.dart';
 import 'package:zz/food_widget.dart';
 import 'package:zz/insta.dart';
 
