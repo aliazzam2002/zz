@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: avatars(), theme: ThemeData.dark());
+    return MaterialApp(home: Burger(), theme: ThemeData.dark());
   }
 }
 
