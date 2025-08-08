@@ -38,15 +38,37 @@ class Instagram extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              ListView.builder(
+              SizedBox(
+                height: 150,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: listOfStoryModel.length,
+                  itemBuilder: (context, index) {
+                    return StoryItem(
+                      title: listOfStoryModel[index].name,
+                      storyImage: listOfStoryModel[index].storyImage,
+                      colors: [Colors.red, Colors.pink],
+                      shapes: BoxShape.circle,
+                    );
+                  },
+                ),
+              ),
+            ],
+            /*ListView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 itemCount: listOfStoryModel.length,
                 itemBuilder: (context, index) {
-                  return Image.network(listOfStoryModel[index].storyImage);
+                  return StoryItem(
+                    title: listOfStoryModel[index].name,
+                    storyImage: listOfStoryModel[index].storyImage,
+                    colors: [Colors.red, Colors.pink],
+                    shapes: BoxShape.circle,
+                  );
                 },
               ),
             ],
+          ), */
           ),
         ),
       ),
@@ -100,7 +122,7 @@ class StoryItem extends StatelessWidget {
                 height: 100,
                 margin: EdgeInsets.all(3),
                 child: CircleAvatar(
-                  backgroundImage: AssetImage(storyImage),
+                  backgroundImage: NetworkImage(storyImage),
                   radius: 50,
                 ),
               ),
