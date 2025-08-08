@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zz/insta_data.dart';
 
 class Instagram extends StatelessWidget {
   const Instagram({super.key});
@@ -34,36 +35,21 @@ class Instagram extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            StoryItem(
-              title: "Bahaa Story",
-              storyImage: "assets/png/Man.png",
-              colors: [const Color.fromARGB(255, 251, 255, 0), Colors.cyan],
-              shapes: BoxShape.circle,
-              
-            ),
-            StoryItem(
-              title: "Ahmad Story",
-              storyImage: "assets/png/Man.png",
-              colors: [const Color.fromARGB(255, 234, 25, 196), Colors.lime],
-              shapes: BoxShape.circle,
-            ),
-            StoryItem(
-              title: "Issac Story",
-              storyImage: "assets/png/Man.png",
-              colors: [const Color.fromARGB(248, 4, 223, 235), Colors.green],
-              shapes: BoxShape.circle,
-              widths: 50,
-            ),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: listOfStoryModel.length,
+                itemBuilder: (context, index) {
+                  return Image.network(listOfStoryModel[index].storyImage);
+                },
+              ),
+            ],
+          ),
         ),
       ),
-
-      /*bottomNavigationBar: Column(
-        children: [Container(child: Icon("assets/png/Home.png"))],
-      ),*/
     );
   }
 }
