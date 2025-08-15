@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zz/insta_data.dart';
 
 class Instagram extends StatelessWidget {
   const Instagram({super.key});
@@ -34,149 +35,90 @@ class Instagram extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            StoryItem(),
-            SizedBox(width: 16),
-            Column(
-              children: [
-                Container(
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 150),
+              ListView.builder(
+                scrollDirection: Axis.horizontal,
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: listOfStoryModel.length,
+                itemBuilder: (context, index) {
+                  return StoryItem(
+                    title: listOfStoryModel[index].name,
+                    storyimage: listOfStoryModel[index].storyImage,
+                    colors: [Colors.red, Colors.pink],
                     shape: BoxShape.circle,
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.topRight,
-                      colors: [
-                        Color.fromRGBO(226, 3, 55, 1),
-                        Color.fromRGBO(198, 1, 136, 1),
-                        Color.fromRGBO(119, 0, 195, 1),
-                      ],
-                    ),
-                  ),
-                  child: Container(
-                    width: 100,
-                    height: 100,
-                    margin: EdgeInsets.all(3),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
-                    ),
-                    child: Container(
-                      width: 100,
-                      height: 100,
-                      margin: EdgeInsets.all(3),
-                      child: CircleAvatar(
-                        backgroundImage: AssetImage("assets/png/Women.png"),
-                        radius: 50,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 8),
-                Text("Karennne", style: TextStyle(color: Colors.white)),
-              ],
-            ),
-            SizedBox(width: 16),
-            Column(
-              children: [
-                Container(
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.topRight,
-                      colors: [
-                        Color.fromARGB(255, 251, 170, 71),
-                        Color.fromARGB(255, 217, 26, 71),
-                        Color.fromARGB(255, 166, 15, 146),
-                      ],
-                    ),
-                  ),
-                  child: Container(
-                    width: 100,
-                    height: 100,
-                    margin: EdgeInsets.all(3),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
-                    ),
-                    child: Container(
-                      width: 100,
-                      height: 100,
-                      margin: EdgeInsets.all(3),
-                      child: CircleAvatar(
-                        backgroundImage: AssetImage("assets/png/Man.png"),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 8),
-                Text("Zackjohn", style: TextStyle(color: Colors.white)),
-              ],
-            ),
-          ],
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
-
-      /*bottomNavigationBar: Column(
-        children: [Container(child: Icon("assets/png/Home.png"))],
-      ),*/
     );
   }
 }
 
 class StoryItem extends StatelessWidget {
-  const StoryItem({super.key});
-
+  const StoryItem({
+    super.key,
+    required this.title,
+    required this.storyimage,
+    required this.colors,
+    required this.shape,
+    this.widths,
+  });
+  final String title;
+  final String storyimage;
+  final List<Color> colors;
+  final BoxShape shape;
+  final double? widths;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          width: 100,
-          height: 100,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            shape: BoxShape.circle,
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.topRight,
-              colors: [
-                Color.fromARGB(255, 251, 170, 71),
-                Color.fromARGB(255, 217, 26, 71),
-                Color.fromARGB(255, 166, 15, 146),
-              ],
-            ),
-          ),
-          child: Container(
-            width: 100,
+    return Padding(
+      padding: const EdgeInsets.all(3.0),
+      child: Column(
+        children: [
+          Container(
+            width: widths ?? 100,
             height: 100,
-            margin: EdgeInsets.all(3),
             decoration: BoxDecoration(
               color: Colors.white,
-              shape: BoxShape.circle,
+              shape: shape,
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.topRight,
+                colors: colors,
+              ),
             ),
             child: Container(
               width: 100,
               height: 100,
               margin: EdgeInsets.all(3),
-              child: CircleAvatar(
-                backgroundImage: AssetImage("assets/png/Man.png"),
-                radius: 50,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+              ),
+              child: Container(
+                width: 100,
+                height: 100,
+                margin: EdgeInsets.all(3),
+                child: CircleAvatar(
+                  backgroundImage: AssetImage(storyimage),
+                  radius: 50,
+                ),
               ),
             ),
           ),
-        ),
-        SizedBox(height: 8),
-        Text("Your Story", style: TextStyle(color: Colors.white)),
-      ],
+          SizedBox(height: 8),
+          Text(
+            title,
+            style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
+          ),
+        ],
+      ),
     );
   }
 }
