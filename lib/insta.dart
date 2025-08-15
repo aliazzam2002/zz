@@ -5,9 +5,14 @@ import 'package:intl/intl.dart';
 import 'package:zz/widgets/postItem.dart';
 import 'package:zz/widgets/storyItem.dart';
 
-class Instagram extends StatelessWidget {
+class Instagram extends StatefulWidget {
   const Instagram({super.key});
 
+  @override
+  State<Instagram> createState() => _InstagramState();
+}
+
+class _InstagramState extends State<Instagram> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,21 +51,18 @@ class Instagram extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: listOfStoryModel.length,
               itemBuilder: (context, index) {
-                return StoryItem(
-                  obj: listOfStoryModel[index],
-
-                );
+                return StoryItem(obj: listOfStoryModel[index]);
               },
             ),
           ),
-          
+
           Expanded(
             child: ListView.builder(
               itemCount: listOfPostModel.length,
               itemBuilder: (context, index) {
                 return PostItem(
                   obj: listOfPostModel[index],
-                
+                  onDoubleTap: () {},
                 );
               },
             ),
@@ -112,6 +114,3 @@ class Instagram extends StatelessWidget {
     );
   }
 }
-
-
-

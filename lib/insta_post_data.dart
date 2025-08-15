@@ -3,6 +3,7 @@ import 'package:zz/model/post_model.dart';
 List<PostModel> listOfPostModel = [
   PostModel(
     like: 696969,
+    liked: false,
     name: "Ali",
     caption: "Love myself",
     profileImage:
@@ -12,6 +13,7 @@ List<PostModel> listOfPostModel = [
   ),
   PostModel(
     like: 3211,
+    liked: false,
     name: "Elias",
     caption: "Smile with ME",
     profileImage:
@@ -21,6 +23,7 @@ List<PostModel> listOfPostModel = [
   ),
   PostModel(
     like: 12300,
+    liked: false,
     name: "Mike",
     caption: "New beard style",
     profileImage:
@@ -30,6 +33,7 @@ List<PostModel> listOfPostModel = [
   ),
   PostModel(
     like: 300000,
+    liked: false,
     name: "Tala",
     caption: "Wooooooooooo",
     profileImage:
@@ -39,6 +43,7 @@ List<PostModel> listOfPostModel = [
   ),
   PostModel(
     like: 25000,
+    liked: false,
     name: "Rema",
     caption: "Weeeeeeeeeeeeeeeeeeeeeee",
     profileImage:
