@@ -7,13 +7,15 @@ class Instagram extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
+        backgroundColor: Colors.black,
         leading: IconButton(
           onPressed: () {},
           icon: Image.asset("assets/png/Camera.png", color: Colors.white),
         ),
-        title: Text(
-          "Belguimgram",
+        title: const Text(
+          "Instagram",
           style: TextStyle(
             fontFamily: "cursive",
             fontWeight: FontWeight.w900,
@@ -26,7 +28,6 @@ class Instagram extends StatelessWidget {
             onPressed: () {},
             icon: Image.asset("assets/png/Stream.png", color: Colors.white),
           ),
-
           IconButton(
             onPressed: () {},
             icon: Image.asset("assets/png/Messanger.png", color: Colors.white),
@@ -122,3 +123,6 @@ class StoryItem extends StatelessWidget {
     );
   }
 }
+
+
+
