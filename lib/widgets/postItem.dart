@@ -25,14 +25,23 @@ class PostItem extends StatelessWidget {
         ),
 
         //post img
-        GestureDetector(
-          onDoubleTap: () {},
-          child: Image.network(
-            obj.postImage,
-            width: MediaQuery.sizeOf(context).width,
-            height: 500,
-            fit: BoxFit.fitWidth,
-          ),
+        Stack(
+          alignment: Alignment.center,
+          children: [
+            GestureDetector(
+              onDoubleTap: onDoubleTap,
+              child: Image.network(
+                obj.postImage,
+                width: MediaQuery.sizeOf(context)
+                .width,
+                height: 500,
+                fit: BoxFit.fitWidth,
+              ),
+            ),
+            if (obj.liked)
+              Center(child: Icon(Icons.favorite,
+              color: Colors.red, size: 100)),
+          ],
         ),
 
         //post funcs
