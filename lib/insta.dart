@@ -54,17 +54,22 @@ class Instagram extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: ListView.builder(
-              itemCount: listOfPostModel.length,
-              itemBuilder: (context, index) {
-                return PostItem(
-                  name: listOfPostModel[index].name,
-                  likes: listOfPostModel[index].like,
-                  profileImage: listOfPostModel[index].profileImage,
-                  caption: listOfPostModel[index].caption,
-                  postImage: listOfPostModel[index].postImage,
-                );
-              },
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.white),
+              ),
+              child: ListView.builder(
+                itemCount: listOfPostModel.length,
+                itemBuilder: (context, index) {
+                  return PostItem(
+                    name: listOfPostModel[index].name,
+                    likes: listOfPostModel[index].like,
+                    profileImage: listOfPostModel[index].profileImage,
+                    caption: listOfPostModel[index].caption,
+                    postImage: listOfPostModel[index].postImage,
+                  );
+                },
+              ),
             ),
           ),
         ],
@@ -198,7 +203,7 @@ class PostItem extends StatelessWidget {
             icon: const Icon(Icons.more_vert_outlined, color: Colors.white),
           ),
         ),
-//post img
+        //post img
         Image.network(
           postImage,
           width: MediaQuery.sizeOf(context).width,
@@ -206,7 +211,7 @@ class PostItem extends StatelessWidget {
           fit: BoxFit.fitWidth,
         ),
 
-//post funcs
+        //post funcs
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 6),
           child: Row(
@@ -235,7 +240,7 @@ class PostItem extends StatelessWidget {
             ],
           ),
         ),
-//captoin
+        //captoin
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12.0),
           child: Text(
@@ -249,3 +254,6 @@ class PostItem extends StatelessWidget {
     );
   }
 }
+//hi
+//gg
+//hgyvuo
