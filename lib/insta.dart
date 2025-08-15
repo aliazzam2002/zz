@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:zz/insta_data.dart';
+import 'package:zz/insta_post_data.dart';
+import 'package:zz/insta_story_data.dart';
+import 'package:intl/intl.dart';
 
 class Instagram extends StatelessWidget {
   const Instagram({super.key});
@@ -7,12 +9,14 @@ class Instagram extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
+        backgroundColor: Colors.black,
         leading: IconButton(
           onPressed: () {},
           icon: Image.asset("assets/png/Camera.png", color: Colors.white),
         ),
-        title: Text(
+        title: const Text(
           "Instagram",
           style: TextStyle(
             fontFamily: "cursive",
@@ -26,52 +30,87 @@ class Instagram extends StatelessWidget {
             onPressed: () {},
             icon: Image.asset("assets/png/Stream.png", color: Colors.white),
           ),
-
           IconButton(
             onPressed: () {},
             icon: Image.asset("assets/png/Messanger.png", color: Colors.white),
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(
-                height: 150,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: listOfStoryModel.length,
-                  itemBuilder: (context, index) {
-                    return StoryItem(
-                      title: listOfStoryModel[index].name,
-                      storyImage: listOfStoryModel[index].storyImage,
-                      colors: [Colors.red, Colors.pink],
-                      shapes: BoxShape.circle,
-                    );
-                  },
-                ),
-              ),
-            ],
-            /*ListView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: listOfStoryModel.length,
-                itemBuilder: (context, index) {
-                  return StoryItem(
-                    title: listOfStoryModel[index].name,
-                    storyImage: listOfStoryModel[index].storyImage,
-                    colors: [Colors.red, Colors.pink],
-                    shapes: BoxShape.circle,
-                  );
-                },
-              ),
-            ],
-          ), */
+      body: Column(
+        children: [
+          SizedBox(
+            height: 125,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: listOfStoryModel.length,
+              itemBuilder: (context, index) {
+                return StoryItem(
+                  title: listOfStoryModel[index].name,
+                  storyImage: listOfStoryModel[index].storyImage,
+                  colors: [Colors.red, Colors.pink],
+                  shapes: BoxShape.circle,
+                );
+              },
+            ),
           ),
-        ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: listOfPostModel.length,
+              itemBuilder: (context, index) {
+                return PostItem(
+                  name: listOfPostModel[index].name,
+                  likes: listOfPostModel[index].like,
+                  profileImage: listOfPostModel[index].profileImage,
+                  caption: listOfPostModel[index].caption,
+                  postImage: listOfPostModel[index].postImage,
+                );
+              },
+            ),
+          ),
+        ],
       ),
+
+      bottomNavigationBar: bottombar(),
+    );
+  }
+
+  BottomNavigationBar bottombar() {
+    return BottomNavigationBar(
+      backgroundColor: Colors.black,
+      selectedItemColor: Colors.white,
+      unselectedItemColor: Colors.grey,
+      type: BottomNavigationBarType.fixed,
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
+      items: [
+        BottomNavigationBarItem(
+          icon: Image.asset("assets/png/Tab 1.png", color: Colors.white),
+          label: "Home",
+        ),
+        BottomNavigationBarItem(
+          icon: Image.asset("assets/png/Tab 2.png", color: Colors.white),
+          label: "Search",
+        ),
+        BottomNavigationBarItem(
+          icon: Image.asset("assets/png/Tab 3.png", color: Colors.white),
+          label: "Reels",
+        ),
+        BottomNavigationBarItem(
+          icon: Image.asset("assets/png/Tab 4.png", color: Colors.white),
+          label: "Likes",
+        ),
+        BottomNavigationBarItem(
+          icon: CircleAvatar(
+            radius: 12,
+            backgroundImage: NetworkImage(
+              "https://t3.ftcdn.net/jpg/02/58/89/90/360_F_258899001_68CalsKTRk6PZQgWH9JhR4heBlncCko9.jpg",
+            ),
+          ),
+          label: "Profile",
+        ),
+      ],
+      currentIndex: 0,
+      onTap: (index) {},
     );
   }
 }
@@ -85,6 +124,7 @@ class StoryItem extends StatelessWidget {
     required this.shapes,
     this.widths,
   });
+
   final String title;
   final String storyImage;
   final List<Color> colors;
@@ -94,44 +134,118 @@ class StoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 4),
       child: Column(
         children: [
           Container(
-            width: widths ?? 100,
-            height: widths ?? 100,
+            width: widths ?? 90,
+            height: widths ?? 90,
             decoration: BoxDecoration(
-              color: Colors.white,
-              shape: BoxShape.circle,
+              shape: shapes,
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
-                end: Alignment.topRight,
+                end: Alignment.bottomRight,
                 colors: colors,
               ),
             ),
             child: Container(
-              width: 100,
-              height: 100,
-              margin: EdgeInsets.all(3),
-              decoration: BoxDecoration(
+              margin: const EdgeInsets.all(3),
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 shape: BoxShape.circle,
               ),
-              child: Container(
-                width: 100,
-                height: 100,
-                margin: EdgeInsets.all(3),
-                child: CircleAvatar(
-                  backgroundImage: NetworkImage(storyImage),
-                  radius: 50,
-                ),
-              ),
+              child: CircleAvatar(backgroundImage: NetworkImage(storyImage)),
             ),
           ),
-          SizedBox(height: 8),
-          Text(title, style: TextStyle(color: Colors.white)),
+          const SizedBox(height: 6),
+          Text(
+            title,
+            style: const TextStyle(color: Colors.white, fontSize: 20),
+          ),
         ],
       ),
+    );
+  }
+}
+
+class PostItem extends StatelessWidget {
+  const PostItem({
+    super.key,
+    required this.name,
+    required this.likes,
+    required this.profileImage,
+    required this.caption,
+    required this.postImage,
+  });
+
+  final String name;
+  final int likes;
+  final String profileImage;
+  final String caption;
+  final String postImage;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        //pfp
+        ListTile(
+          leading: CircleAvatar(backgroundImage: NetworkImage(profileImage)),
+          title: Text(name, style: const TextStyle(color: Colors.white)),
+          trailing: IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.more_vert_outlined, color: Colors.white),
+          ),
+        ),
+//post img
+        Image.network(
+          postImage,
+          width: MediaQuery.sizeOf(context).width,
+          height: 500,
+          fit: BoxFit.fitWidth,
+        ),
+
+//post funcs
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 6),
+          child: Row(
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.favorite_border_outlined,
+                  color: Colors.white,
+                ),
+              ),
+              Text(
+                NumberFormat.decimalPattern().format(likes),
+                style: const TextStyle(color: Colors.white),
+              ),
+              const SizedBox(width: 16),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.comment_outlined, color: Colors.white),
+              ),
+              const SizedBox(width: 16),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.send, color: Colors.white),
+              ),
+            ],
+          ),
+        ),
+//captoin
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12.0),
+          child: Text(
+            "$name: $caption ",
+            style: const TextStyle(color: Colors.white),
+          ),
+        ),
+
+        const SizedBox(height: 12),
+      ],
     );
   }
 }

@@ -27,7 +27,7 @@ List<StoryModel> listOfStoryModel = [
     name: "Tala",
     seen: true,
     storyImage:
-        "https://img.freepik.com/free-photo/smiling-beautiful-young-woman-standing-posing_171337-11412.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU4Kft8VrSM-OXyPVKtEtlmcIDCAb_qggVAQ&s",
   ),
   StoryModel(
     live: true,
