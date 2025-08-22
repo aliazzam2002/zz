@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zz/login.dart';
+import 'package:zz/routes/routes.dart';
+import 'package:zz/routes/routes_strings.dart';
 
 class asd extends StatelessWidget {
   const asd({super.key});
@@ -10,10 +12,7 @@ class asd extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Login()),
-            );
+            Navigator.pushNamed(context, RoutesStrings.login);
           },
           child: Container(
             decoration: BoxDecoration(
