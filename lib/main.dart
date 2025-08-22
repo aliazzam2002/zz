@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:zz/insta.dart';
 import 'package:zz/login.dart';
+import 'package:zz/routes/routes.dart';
 import 'package:zz/wel.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: asd(), debugShowCheckedModeBanner: false);
+    return MaterialApp(debugShowCheckedModeBanner: false, routes: routes);
   }
 }
 
