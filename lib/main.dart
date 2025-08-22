@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:zz/insta.dart';
 import 'package:zz/login.dart';
+import 'package:zz/wel.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Login(), debugShowCheckedModeBanner: false);
+    return MaterialApp(home: asd(), debugShowCheckedModeBanner: false);
   }
 }
 
