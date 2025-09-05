@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:zz/insta.dart';
+<<<<<<< HEAD
+=======
+import 'package:zz/signup.dart';
+import 'package:zz/routes/routes.dart';
+import 'package:zz/wel.dart';
+>>>>>>> 530ca723a02d013fa4c69edb9444b6c6327d4fe4
 
 void main() {
   runApp(const MyApp());
