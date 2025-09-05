@@ -1,7 +1,6 @@
-import 'dart:js_interop';
-
 import 'package:flutter/material.dart';
-import 'log in . dart';
+import 'package:zz/insta.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -11,44 +10,238 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+    return MaterialApp(home: Instagram(), theme: ThemeData.dark() , 
+    debugShowCheckedModeBanner: false,);
+  }
+}
+
+class Lime extends StatelessWidget {
+  const Lime({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Container(
+          height: 500,
+          width: 350,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(18),
+            border: Border.all(color: Colors.lightGreen, width: 2),
+          ),
+          child: Column(
+            children: [
+              Center(
+                child: Image.network(
+                  "https://thumbs.dreamstime.com/b/fresh-lime-over-white-background-32867420.jpg",
+                  height: 190,
+                  width: 190,
+                ),
+              ),
+              Text(
+                "1.22\$",
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.lightGreen,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                "Oeganic Lime",
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                "4pcs Fresh and healthy limes",
+                style: TextStyle(fontSize: 20, color: Colors.grey),
+              ),
+              Column(
+                children: [
+                  TextButton(
+                    onPressed: () {},
+                    child: Container(
+                      height: 60,
+                      width: 230,
+                      decoration: BoxDecoration(
+                        color: Colors.lightGreen,
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.shopping_bag_rounded,
+                              color: Colors.white,
+                              size: 35,
+                            ),
+                            Text(
+                              "   add to cart",
+                              style: TextStyle(
+                                fontSize: 24,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class BT extends StatelessWidget {
+  const BT({super.key});
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Container(
+          height: 900,
+          width: 650,
+          decoration: BoxDecoration(
+            color: Colors.blueGrey,
+            borderRadius: BorderRadius.circular(18),
+            border: Border.all(color: Colors.pink, width: 2),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.network(
+                "https://thumbs.dreamstime.com/b/concept-design-super-sports-vehicle-car-auto-shop-logo-original-motor-silhouette-black-background-vector-illustration-70242426.jpg",
 
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
+                height: 390,
+                width: 390,
+              ),
+              Text(
+                "Welcome to Flutter",
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.yellow,
+                  fontWeight: FontWeight.bold,
+                  shadows: [Shadow(offset: Offset(2, 2), color: Colors.pink)],
+                ),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Container(
+                  height: 40,
+                  width: 210,
+                  decoration: BoxDecoration(
+                    color: Colors.blueGrey,
+                    borderRadius: BorderRadius.circular(28),
+                    border: Border.all(color: Colors.pink),
+                  ),
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.email_rounded,
+                          color: Colors.white,
+                          size: 20,
+                        ),
+                        Text(
+                          "   Continue with Email",
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.yellow,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Column(
+                children: [
+                  TextButton(
+                    onPressed: () {},
+                    child: Container(
+                      height: 40,
+                      width: 210,
+                      decoration: BoxDecoration(
+                        color: Colors.blueGrey,
+                        borderRadius: BorderRadius.circular(28),
+                        border: Border.all(color: Colors.pink),
+                      ),
+                      child: Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.g_mobiledata_rounded,
+                              color: Colors.white,
+                              size: 35,
+                            ),
+                            Text(
+                              "Continue with Google",
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.yellow,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Container(
+                      height: 40,
+                      width: 210,
+                      decoration: BoxDecoration(
+                        color: Colors.blueGrey,
+                        borderRadius: BorderRadius.circular(28),
+                        border: Border.all(color: Colors.pink),
+                      ),
+                      child: Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.apple, color: Colors.white, size: 20),
+                            SizedBox(width: 8),
+                            Text(
+                              "Continue with Apple",
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.yellow,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
 
-  final String title;
+class MainPage extends StatefulWidget {
+  const MainPage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();

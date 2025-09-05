@@ -62,7 +62,19 @@ class _InstagramState extends State<Instagram> {
               itemBuilder: (context, index) {
                 return PostItem(
                   obj: listOfPostModel[index],
-                  onDoubleTap: () {},
+                  onDoubleTap: () async {
+                    setState(() {
+                      listOfPostModel[index].liked =
+                          !listOfPostModel[index].liked;
+                    });
+
+                    await Future.delayed
+                    (Duration(milliseconds: 450));
+                    setState(() {
+                      listOfPostModel[index].liked =
+                          !listOfPostModel[index].liked;
+                    });
+                  },
                 );
               },
             ),
