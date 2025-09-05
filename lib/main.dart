@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:zz/insta.dart';
-import 'package:zz/login.dart';
+import 'package:zz/signup.dart';
 import 'package:zz/routes/routes.dart';
 import 'package:zz/wel.dart';
 
